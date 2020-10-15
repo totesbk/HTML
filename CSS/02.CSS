@@ -1,0 +1,3 @@
+ ul > li > p{ /*ul태그아래 하위 li 그 하위에 p 태그 */
+    color: red;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹페이지에 데이터 기록, 가져오기</title>
+  <script>
+    function hello(){
+      document.getElementById('greeting').innerHTML += '아침식사';
+
+      // var str = '반갑습니다';
+
+    }
+    var adultCertification=function(){
+      var name = document.getElementById('name').value;
+      var age = parseInt(document.getElementById('age').value);
+
+      if(age>=20){
+        alert(name+'님은 성인입니다.');
+
+      }else{
+        alert(name+'님은 성인이 아닙니다.');
+      }
+    }
+  </script>
+</head>
+<body>
+  <input type="button" value="hello" onclick="hello()">
+  <p id="greeting">안녕하세요.</p>
+  이름 : <input type="text" name="name" id="name">
+  나이 : <input type="number" name="age" id="age"><br>
+  <input type="button" value="성인인증" onclick="adultCertification()">
+
+ 
+</body>
+</html>

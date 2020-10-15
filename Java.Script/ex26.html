@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload=function(){
+      var box = document.createElement('div');
+      box.innerHTML='hello world';
+      document.body.appendChild(box);
+      
+      var boxOffsetX,boxOffsetY;
+      
+      box.style.display = 'inline-block';
+      box.style.position = 'absolute';
+      box.style.padding = '10px';
+      box.style.backgroundColor='gold';
+      box.style.color='blue';
+      box.style.cursor='pointer';
+
+      box.addEventListener('mousedown',mouseDownListener,false);
+      document.addEventListener('mouseup',mouseUpListener,false);
+
+      function mouseDownListener(e){
+        document.addEventListener('mousemove',mouseMovListener,false);
+        boxOffsetX=e.offsetX;
+        boxOffsetY=e.offsetY;
+
+
+      }
+      function mouseUpListener(e){
+        document.removeEventListener('mousemove',mouseMovListener,false);
+
+      }
+      function mouseMovListener(e){
+        box.style.left= e.pageX - boxOffsetX + 'px';
+        box.style.top= e.pageY - boxOffsetY + 'px';
+
+      }
+    
+    }
+  </script>
+
+</head>
+<body>
+  
+</body>
+</html>

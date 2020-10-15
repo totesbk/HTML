@@ -1,0 +1,41 @@
+.aboutMenu a {
+  margin: 0;
+  padding: 0;
+}
+
+.confirmInfo {
+  width: 600px;
+  margin: 0 auto;
+  padding-top: 300px;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 50px;
+  letter-spacing: 5px;
+  display: block;
+}
+
+.confirmInfo input {
+  border: 1px solid rgba(120, 120, 120, 0.3);
+  border-radius: 5px;
+  font-size: 25px;
+  width: 400px;
+  height: 35px;
+  letter-spacing: 5px;
+}
+
+.confirmInfo button {
+  border: none;
+  background-color: rgba(120, 120, 120, 0);
+  color: #8d192b;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+
+.confirmInfo button:hover {
+  cursor: pointer;
+  font-size: 35px;
+}
+
+.info {
+  display: none;
+}

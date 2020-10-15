@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-3.51.js"></script>
+  <style>
+    .header{
+      text-align:center;
+    }
+    .red-text{
+      color:red;
+    }
+    .yellow-Bg{
+      background-color: yellow;
+    }
+    .test{
+      color: blue;
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+<h1 class="header red-text yellow-Bg">안녕하세요</h1>
+<script>
+  // $('h1').attr('class','header').attr('class','red-text');
+  // var arrClass = ['header','red-text','yellow-Bg'];
+  // $('h1').attr('class',function(){
+  //   var setClass='';
+  //   for(var i=0;i<arrClass.length;i++){
+  //       setClass+=arrClass[i]+' ';
+  //   }
+  //   return setClass;
+  // });
+
+  $('h1').addClass('header');
+  $('h1').addClass('red-text');
+  $('h1').addClass('yellow-Bg');
+  $('h1').removeClass('red-text');
+
+  setTimeout(function(){
+      $('h1').removeClass('yellow-Bg');
+
+  },1000*3);
+  setTimeout(function(){
+      $('h1').removeClass('red-text');
+  },1000*6);
+  setTimeout(function(){
+      $('h1').removeClass('header');
+  },1000*9);
+
+  var outputA=$('h1').hasClass('header');
+  var outputB=$('h1').hasClass('container');
+
+  alert(outputA);
+  alert(outputB);
+
+  $('h1').toggleClass('test');
+  setInterval(function(){
+    $('h1'),toggleClass('test');
+  },1000*3);
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-3.51.js"></script>
+
+  <script>
+    var xml = "";
+    xml += "<friends>";
+    xml += "<friend>";
+    xml += "<name>손오공</name>";
+    xml += "<type>원숭이</type>";
+    xml += "</friend>";
+    xml += "<friend>";
+    xml += "<name>사오정</name>";
+    xml += "<type>물요괴</type>";
+    xml += "</friend>";
+    xml += "<friend>";
+    xml += "<name>저팔계</name>";
+    xml += "<type>돼지</type>";
+    xml += "</friend>";
+    xml += "</friends>";
+    $(document).ready(function(){
+      var xmlDoc=$.parseXML(xml);
+      $(xmlDoc).find('friend').each(function(){
+          var output='';
+          
+          output+='<div>';
+            output+='<h1>'+$(this).find(name).text()+'</h1>';
+            output+='<p>'+$(this).find(type).text()+'</p>';
+            
+
+              $('<div></div>s').html(output).appendTo("body");
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <script>
+
+  </script>
+</body>
+
+</html>

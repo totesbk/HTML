@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../Jquery/jquery-3.51.js"></script>
+  <script>
+    window.onload = function(){
+      //문서가 로드가 완료되면 실행되는 영역
+    };
+    $(document).ready(function(){
+        alert('첫번째 문서로드')
+    });
+    $(document).ready(function(){
+        alert('두번째 문서로드')
+    });
+    $(document).ready(function(){
+        alert('세번째 문서로드')
+    });
+    $(function(){
+
+    });
+
+    var $ = jQuery;
+    jQuery(document).ready(function(){
+      $('h1').css('color','red');
+    });
+    
+   
+  </script>
+</head>
+
+<body>
+<h1>안녕하세요</h1>
+  <script>
+    
+    </script>
+    <p>반갑습니다.0</p>
+    <script>
+      $('h1').css('color','red');
+      //요소선택
+     $('h1')
+     $('p')
+     $('#id')
+     $('h1.class')
+
+     $('<h2></h2>').appendTo('부모요소').css('스타일','컬러') //요소생성
+     var a =document.createElement('h2'); //위랑똑같이 요소만드는것
+     a.setAttribute('',''); //<h2 속성="속성값">문자열</h2>
+     a.innerHTML='문자열컨텐츠';//h2속성=:"속성값>문자열</h2>"
+     부모요소.append(a);
+
+     //요소선택,제어
+     css()
+     html()
+     text()
+     attr()
+
+    </script>
+
+ 
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Dokdo&display=swap');
+
+
+p[class]{    
+    font-family: 'Dokdo', cursive;
+    font-size: 50px;
+    color: red;
+    font-weight: bold;
+    
+} 

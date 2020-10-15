@@ -1,0 +1,120 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.container {
+  margin: 0 auto;
+  width: 1000px;
+  background-color: cornsilk;
+  display: flex;
+  /* 하위박스에서설정 */
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /* 줄바꿈을 할 것인가 */
+  justify-content: space-between;
+  /* 적절한 간격으로 만들어라 */
+}
+
+.calendarBox {
+  width: 500px;
+}
+.header {
+  width: 500px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+}
+
+.header > p {
+  font-size: 30px;
+  text-align: center;
+  padding: 5px;
+  font-weight: 800px;
+}
+.nowMonth {
+  width: 250px;
+  font-size: 30px;
+}
+#selectMonth {
+  font-size: 30px;
+  width: 300px;
+}
+
+.imgX {
+  width: 15px;
+  height: 15px;
+}
+.weekList {
+  width: 700px;
+  border: 1px black solid;
+  height: 60px;
+  font-weight: 800;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.weekName {
+  width: 100px;
+  height: 60px;
+  font-weight: 50px;
+  text-align: center;
+  border: 1px black solid;
+}
+.sun {
+  color: red;
+}
+.sat {
+  color: blue;
+}
+.weekLine {
+  width: 700px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.weekDay {
+  width: 100px;
+  font-size: 25px;
+  text-align: center;
+  border: 1px black solid;
+  height: 70px;
+}
+
+.toDoBox {
+  width: 300px;
+  border: 1px black solid;
+}
+.toDoHeader {
+  width: 300px;
+  height: 70px;
+  font-size: 50px;
+  text-align: center;
+  border: 1px solid black;
+}
+#todobtn {
+  float: left;
+  height: 60px;
+  width: 96px;
+  text-align: center;
+  font-size: 25px;
+}
+.selDate {
+  height: 60px;
+  width: 200px;
+  float: left;
+  font-size: 35px;
+  font-weight: 800;
+  text-align: center;
+  border: 1px black solid;
+}
+.toDoList {
+  clear: both;
+}
+#toDoList {
+  list-style-type: none;
+  text-align: center;
+  font-size: 25px;
+}

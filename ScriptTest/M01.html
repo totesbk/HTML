@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var lists=[];
+    function Words(word,mean){
+
+      this.word = word;
+      this.mean = mean;
+    }
+    function wordMean(){
+      var word1=prompt('단어를 입력하세요.');
+      var word2=prompt('뜻을 입력하세요.');
+      
+    }
+    function addWord(){
+      var newList = document.createElement("li");      
+        var word1 = prompt("단어를 입력하세요");
+        var word2 = prompt("뜻을 입력하세요");
+        lists.push(new Words(word1,word2));
+        newList.innerHTML = lists[lists.length-1].word+lists[lists.length-1].mean;
+        var list = document.getElementById("list");
+        list.appendChild(newList);
+    }
+
+
+    function lastRemove(){
+      lists.splice(lists[lists.length-1],1);  
+      document.getElementById("list").innerHTML="";
+      for(var i=0; i<lists.length; i++){
+        var newList = document.createElement("li");   
+        newList.innerHTML = lists[i].word+lists[i].mean;
+        var list = document.getElementById("list");
+        list.appendChild(newList);
+      }
+    }
+    function numberRemove(){
+      var num=prompt("번호를 입력하세요")
+      lists.splice(lists[num-1],1);  
+      document.getElementById("list").innerHTML="";
+      for(var i=0; i<lists.length; i++){
+        var newList = document.createElement("li");   
+        newList.innerHTML = lists[i].word+lists[i].mean;
+        var list = document.getElementById("list");
+        list.appendChild(newList);
+      }
+    }
+    function wordRemove(){ 
+      var num1=prompt('번')      
+    }
+
+    
+  </script>
+</head>
+<body>
+  <h2>영어단어장</h2>
+ <input type="button" value="단어등록" onclick="addWord()">
+ <input type="button" value="마지막단어삭제" onclick="lastRemove()">
+ <input type="button" value="단어삭제" onclick="wordRemove()">
+ <input type="button" value="번호삭제" onclick="numberRemove()">
+ <ol id="list">
+
+ </ol>
+</body>
+</html>

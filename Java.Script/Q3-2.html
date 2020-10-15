@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="#" method="get">
+    <fieldset>
+      <legend>성적입력</legend>
+      <label for="">학생이름 : </label>
+      <input type="text" name="ipName" id="ipName"><br>
+      <label for="">국어점수 : </label>
+      <input type="number" name="ipKor" id="ipKor" class="ipScores"><br>
+      <label for="">영어점수 : </label>
+      <input type="number" name="ipEng" id="ipEng" class="ipScores"><br>
+      <label for="">수학점수 : </label>
+      <input type="number" name="ipMath" id="ipMath" class="ipScores"><br>
+      <input type="button" value="성적 입력" onclick="inputScore()">
+    </fieldset>
+    <fieldset>
+      <legend>성적출력</legend>
+      <label for="ckName">학생이름</label>
+      <input type="text" name="ckName" id="ckName"><br>
+      <input type="button" value="성적출력" onclick="checkScore()"><br>
+      <label for="ckKor">국어점수</label>
+      <input type="number" name="ckKor" id="ckKor" readonly><br>
+      <label for="ckEng">영어점수</label>
+      <input type="number" name="ckEng" id="ckEng" readonly><br>
+      <label for="ckMath">수학점수</label>
+      <input type="number" name="ckMath" id="ckMath" readonly><br>
+      <label for="ckSum">총합점수</label>
+      <input type="number" name="ckSum" id="ckSum" readonly><br>
+      <label for="ckAng">평균점수</label>
+      <input type="number" name="ckAvg" id="ckAvg" readonly><br>
+    </fieldset>
+    
+  </form>
+  <script>
+    function Student(name,kor,eng,math){
+      this.name=name;
+      this.kor=parseInt(kor);
+      this.eng=parseInt(eng);
+      this.math=parseInt(math);
+      this.sum=function(){
+        return this.kor+this.eng+this.math;
+      }
+      this.avg=function(){
+        return this.sum()/3;
+      }
+    }
+
+    var studentList=[];
+    function inputScore(){
+      var name = document.getElementById('ipName').value;
+      var scores = document.getElementsByClassName('ipScores');
+
+      studentList.push(new Student(name,scores[0].value,scores[1].value,scores[2].value));
+      alert('성적 등록 완료.');
+    }
+
+    function checkScore(){
+     var name = document.getElementById('ckName').value
+     var flag=-1;
+     for(var i=0;i<studentList.length;i++){
+       if(studentList[i].name==name){
+         flag=i;
+        document.getElementById('ckKor').value = studentList[i].kor;
+        document.getElementById('ckEng').value = studentList[i].eng;
+        document.getElementById('ckMath').value = studentList[i].math;
+        document.getElementById('ckSum').value = studentList[i].sum();
+        document.getElementById('ckAvg').value = studentList[i].avg();
+       }
+         
+       }
+       if(flag==-1){
+       alert('이름을 찾지못했습니다.');
+      }
+     }
+    
+  </script>
+</body>
+</html>

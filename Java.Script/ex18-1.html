@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    
+    //업다운게임만들기
+    var com=Math.floor(Math.random()*(100-1+1))+1;
+    var cnt=0;
+
+    do{
+      
+      var user = parseInt(prompt('1부터100사이의숫자를 입력해주세요.'));
+      cnt++;
+      if(0>=user || user>100){
+        alert('범위를 벗어났습니다.');
+      }else if(user > com){
+        alert('다운');
+
+      }else if(user<com){
+        alert('업');
+
+      }else{
+        alert('맞췄습니다.'+com+'\n 게임수 : '+cnt);
+        break;
+      }
+
+    }while(true);
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

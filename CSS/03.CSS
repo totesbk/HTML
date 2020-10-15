@@ -1,0 +1,26 @@
+a:link{
+  color: pink;
+  font-size: 50px;
+  text-decoration-line: none;
+    
+}
+
+a:visited{
+    color: red;
+    font-size: 50px;
+    text-decoration-line: none;
+}
+a:hover{
+    font-size: 50px;
+    color: white;
+    background-color: blue;
+}
+
+li:nth-child(2n+1){
+    color: black;
+    font-size: 20px;
+    background-color: yellow;
+
+}
+
+video[autoplays]

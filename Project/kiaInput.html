@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="kiaCus.CSS" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <img src="../images/기아새로고.jpg" alt="" id="kia" />
+    <div class="di">
+      <form action="#" method="GET">
+        <h1>고객Q&A</h1>
+        <hr />
+        <table>
+          <tr>
+            <td>
+              <label for="name">작성자</label>
+            </td>
+            <td><input type="text" name="name" id="name" placeholder="작성자를 입력하세요." /></td>
+          </tr>
+          <tr>
+            <td>
+              <label for="title">제목</label>
+            </td>
+            <td><input type="text" name="title" id="title" placeholder="제목을 입력하세요." /></td>
+          </tr>
+        </table>
+        <label for="select">문의 유형선택</label><br />
+        <select id="select" class="select" name="select">
+          <option value="미선택">선택</option>
+          <option value="탁송">탁송</option>
+          <option value="홈페이지에러">홈페이지에러</option>
+          <option value="온라인견적">온라인견적</option>
+          <option value="A/S접수,리콜">A/S접수, 리콜</option>
+          <option value="판매점찾기">판매점찾기</option>
+        </select>
+        <br />
+        <label for="content">내용</label><br />
+        <textarea name="cbontent" id="content" cols="30" rows="10"></textarea><br />
+        <br />
+        <input type="button" value="문의등록" onclick="input()" />
+        <input type="button" value="게시물로 돌아가기" onclick="returnList()" />
+      </form>
+    </div>
+    <script>
+      var list = JSON.parse(localStorage.getItem("list"));
+
+      function Board(name, title, content, regDate, select) {
+        this.name = name;
+        this.title = title;
+        this.content = content;
+        this.regDate = regDate;
+        this.select = select;
+      }
+      function input() {
+        var name = document.getElementById("name").value;
+        var title = document.getElementById("title").value;
+        var content = document.getElementById("content").value;
+        var regDate = new Date().toLocaleString();
+        var select = document.getElementsByClassName("select")[0].value;
+        var board = new Board(name, title, content, regDate, select);
+        localStorage.setItem("board", JSON.stringify(board));
+        list.push(board);
+        localStorage.setItem("list", JSON.stringify(list));
+        var type = document.getElementsByClassName("select")[0].value;
+        sessionStorage.setItem("type", type);
+        returnList();
+      }
+
+      function returnList() {
+        location.href = "./kiaList.html";
+      }
+    </script>
+  </body>
+</html>

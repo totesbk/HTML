@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-3.51.js"></script>
+  <script src="./jquery-ui.js"></script>
+  <style>
+    .reverse{
+      color:white;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Lorem ipsum</h1>
+    <p>Lorem ipsum dolor sit amet consectetur</p>
+  </div>
+  <div>
+    <h1>Lorem ipsum</h1>
+    <p>Lorem ipsum dolor sit amet consectetur</p>
+  </div>
+  <script>
+    $(document).ready(function(){
+      $('div').hover(function(){
+        $(this).addClass('reverse',1000);
+      },function(){
+        $(this).removeClass('reverse',1000);
+      });
+    });
+  </script>
+</body>
+</html>

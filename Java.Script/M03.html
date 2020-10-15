@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function lottoGame(){
+      var lotto=[];
+      for(var i=0;i<3;i++){
+        var num = Math.floor(Math.random()*(9-1+1))+1;
+        lotto.push(num);
+        for(var j=0;j<i;j++){
+          if(lotto[i]==lotto[j]){
+            lotto.length--;
+            i--;
+            break;
+          }
+
+        }
+      }
+      lotto.sort(function(a,b){
+        return a-b; //오름차순정렬 b-a는 내림차순
+      });
+      document.getElementById('gameList').innerHTML+=lotto.toString()+'<br>'
+   
+    }
+  </script>
+</head>
+<body>
+  <input type="button" value="lotto" onclick="lottoGame()">
+  <p id="gameList"></p> 로또번호출력공간
+</body>
+</html>

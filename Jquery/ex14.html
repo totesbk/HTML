@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-3.51.js"></script>
+</head>
+<body>
+  <div>
+    <p>하고싶은말</p>
+    <h1>140</h1>
+    <textarea name="word" cols="70" rows="5"></textarea>
+  </div>
+  <script>
+    $(document).ready(function(){
+      $('textarea').keyup(function(){
+        var inputLength=$(this).val().length;
+        var  remain = 140 - inputLength;
+
+        $('h1').html(remain);
+      });
+    });
+  </script>
+</body>
+</html>
+

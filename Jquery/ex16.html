@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-3.51.js"></script>
+</head>
+<body>
+  <form action="#" method="POST" id="loginForm">
+    <table>
+      <tr>
+        <td>아이디</td>
+        <td><input type="text" name="id" id="mid"></td>
+      </tr>
+        <td>비밀번호</td>
+        <td><input type="password" name="mpw" id="mpw"></td>
+      <tr>
+
+      </tr>
+    </table>
+    <input type="submit" value="로그인">
+    <input type="reset" value="리셋">
+  </form>
+  <script>
+    $(document).ready(function(){
+      $('#loginForm').submit(function(){
+        var mId = $('#mid').val();
+        var mPw = $('#mpw').val();
+
+        alert(mId+":"+mPw);
+      }).reset(function(){
+        alert('입력내용을 리셋합니다.');
+      });
+    });
+  </script>
+</body>
+</html>

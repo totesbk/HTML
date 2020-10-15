@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <table border="1" id="wordList">
+    <tr>
+      <td>🤞</td>
+      <td><input type="button" value="단어추가" onclick="addWord()"></td>
+      <td><input type="button" value="마지막 단어 삭제" onclick="removeLastWord()"></td>
+      <td><input type="button" value="번호로 단어 삭제" onclick="removeNumWord()"></td>
+      <td><input type="button" value="단어로 삭제" onclick="removeWord()"></td>
+
+    </tr>
+    <tr>
+      <td>🤷‍♀️</td>
+      <th colspan="2">영단어</th>
+      <th colspan="2">한글의미</th>
+    </tr>
+  </table>
+  <script>
+    function numbering(){
+      var targetList = document.getElementsByClassName('wordTr');
+      return targetList.length+1;
+    }
+    function addWord(){
+      var eng=prompt('영단어를 입력하세요.');
+      var kor=prompt('뜻을 입력하세요.');
+
+      var num=document.createElement('td');
+      num.setAttribute('class','wordNum');
+      num.innerHTML=numbering();
+
+      var newEngTd=document.createElement('td');
+      newEngTd.setAttribute('colspan','2');
+      newEngTd.setAttribute('class','wordEng');
+      newEngTd.innerHTML=eng;
+     
+      var newKorTd=document.createElement('td');
+      newKorTd.setAttribute('colspan','2');
+      newKorTd.innerHTML=kor;
+      var newTr=document.createElement('tr');
+      newTr.setAttribute('class','wordTr');
+      newTr.appendChild(num);
+      newTr.appendChild(newEngTd);
+      newTr.appendChild(newKorTd);
+
+      var table=document.getElementById('wordList');
+      table.appendChild(newTr);
+
+
+
+    }
+    function removeLastWord(){
+      var table=document.getElementById('wordList');
+      var targetList=document.getElementsByClassName('wordTr');
+
+      if(targetList.length==0){
+        alert('삭제할 데이터가 없습니다.');
+      }else{
+        var target = targetList[targetList.length-1];
+        table.removeChild(target);
+      }
+      
+
+    }
+    function removeNumWord(){
+      var table=document.getElementById('wordList');
+      var targetList=document.getElementsByClassName('wordTr');
+      var numList=document.getElementsByClassName('wordNum');
+
+      if(targetList.length==0){
+        alert('삭제할 단어가 없습니다.');
+      }else{
+        var number = prompt('삭제하고자 하는 번호를 입력하세요.');
+        if(0<number && number<=numList.length){
+          var target=targetList[number-1];
+          table.removeChild(target);
+        }else{
+          alert('없는 번호입니다.');
+        }
+      }
+      cnt();
+    }
+    function removeWord(){
+      var table=document.getElementById('wordList');
+      var targetList=document.getElementsByClassName('wordTr');
+      var wordEngList=document.getElementsByClassName('wordEng');
+      if(targetList.length==0){
+        alert('삭제할 단어가 없습니다.');
+      }else{
+        var eng=prompt('삭제할 단어를 입력해주세요.');
+        var flag=-1;
+        for(var i=0;i<wordEngList.length;i++){
+          if(wordEngList[i].innerHTML==eng){
+            var target = targetList[i];
+            table.removeChild(target);
+            flag=i;
+          }
+        }
+        if(flag==-1){
+          alert('해당 단어를 찾을 수 없습니다.')
+        }
+      }
+      cnt();
+
+    }
+
+    function cnt(){
+      var numList=document.getElementsByClassName('wordNum');
+      for(var i=0;i<numList.length;i++){
+        numList[i].innerHTML=(i+1);
+      }
+    }
+  </script>
+
+</body>
+
+</html>

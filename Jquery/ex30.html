@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-3.51.js"></script>
+  <script src="./jquery-ui.js"></script>
+</head>
+<body>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <script>
+    $(document).ready(function(){
+      var array = ['사과','바나나','복숭아','파인애플'];
+      
+      //자바스크립트출력
+      for(var n in array){
+        document.body.innerHTML+=n+':'+array[n]+'<br>';
+      }
+      document.body.innerHTML+='<hr>';
+      //제이쿼리배열처리
+      $.each(array,function(index,item){
+        document.body.innerHTML+=index+':'+item+'<br>';
+      });
+      //제이쿼리 요소관리방법:배열처리
+      $('p').each(function(index,item){
+        $(this).html('p 태그입니다.'+index)
+        $(item).addClass('hello'+index);
+      });r
+
+    });
+  </script>
+</body>
+</html>

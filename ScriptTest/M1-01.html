@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="단어 추가" onclick="addWord()"><br>
+  <input type="button" value="마지막줄 삭제" onclick="removeLastWord()"><br>
+  <input type="button" value="번호로 단어 삭제" onclick="removeNumber()"><br>
+  <input type="button" value="단어 삭제" onclick="removeWord()"><br>
+  <ol id="wordList"></ol>
+  <script>
+    function addWord() { //단어추가
+      var eng = prompt('영단어를 입력하세요.');
+      var kor = prompt('한글 뜻을 입력하세요.');
+
+      var newList = document.createElement('li'); //<li></li>
+      //newList.setAttribute('속성이름','값');
+      newList.setAttribute('class', 'word'); //<li class="word"></li>
+      newList.innerHTML = eng + ":" + kor; //<li class="word">eng:kor</li>
+
+      var list = document.getElementById('wordList'); //<ol id="wordList"></ol>
+      list.appendChild(newList);
+
+    }
+    function removeLastWord() { //마지막단어삭제
+      var list = document.getElementById('wordList'); //<ol>..............</ol>
+      var targetList = document.getElementsByClassName('word');//클래스속성이 word인것 모두를 '배열'가져온다.
+      //targetList[0]=> <li>apple:사과</li>
+      if (targetList.length == 0) {
+        alert('삭제할 단어가 없습니다.');
+      } else {
+        var target = targetList[targetList.length - 1];
+        list.removeChild(target);
+      }
+
+
+    }
+    function removeNumber() {
+      var list = document.getElementById('wordList');
+      var targetList = document.getElementsByClassName('word');
+      if (targetList.length == 0) {
+        alert('삭제할 단어가 없습니다.')
+      } else {
+        var number = prompt('삭제할단어의 번호를 입력하세요.');
+        if (targetList.length < number) {
+          alert('삭제할 수 없습니다. ');
+        } else {
+          var target = targetList[number - 1];
+          list.removeChild(target);
+        }
+
+      }
+    }
+    function removeWord() {
+      var list = document.getElementById('wordList');
+      var targetList = document.getElementsByClassName('word');
+      var flag = -1;
+      if (targetList.length == 0) {
+        alert('삭제할 단어가 없습니다.');
+      } else {
+        var select = prompt('삭제할 단어를 입력하세요.');
+        for (var i = 0; i < targetList.length; i++){
+          var word = targetList[i].innerHTML.split(':'); //<li>  </li>
+          if (word[0] == select) {
+            var target = targetList[i];
+            flag = i;
+            list.removeChild(target);
+          }
+        }
+        if (flag == -1) {
+          alert('해당 단어를 찾지못했습니다.');
+        }
+      }
+    }
+
+
+  </script>
+  
+  </body>
+  
+  </html>

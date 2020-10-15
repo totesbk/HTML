@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+   function addWord(){
+     var eng =prompt('영단어를 입력하세요.');
+     var kor = prompt('한글을 뜻을 입력하세요.');
+
+     document.getElementById('list').innerHTML+=eng+":"+kor+'<br>';
+     alert('단어 등록완료')
+   }
+  </script>
+</head>
+<body>
+  <input type="button" value="단어등록" onclick="addWord()">
+  <p id="list"></p>
+
+</body>
+</html>

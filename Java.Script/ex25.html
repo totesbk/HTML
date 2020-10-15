@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = function(){
+      document.addEventListener('keydown',showkeyinfo,false);
+      var display = document.getElementById('display');
+     
+      function showkeyinfo(e){
+        var prop = ['altKey','ctrlKey','shiftKey','metaKey','key','code','keyCode'];
+        var s='';
+        for(var i in prop){
+          s+='<br>'+prop[i]+':'+e[prop[i]];
+
+        }
+        s+="->"+String.fromCharCode(e.keyCode);
+        display.innerHTML=s;
+      }
+    };
+  </script>
+</head>
+<body>
+  <p id="display"></p>
+</body>
+</html>

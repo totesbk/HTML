@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var changeHobby = function () {
+        var hobbyA = prompt("바꿀 취미를 입력하세요 :");
+        var hobbyB = parseInt(prompt("리스트 번호를 입력하세요 : "));
+
+        var list = document.getElementsByClassName("hobby");
+        list[hobbyB].innerHTML = hobbyA;
+      };
+
+      function changeColor() {
+        var list = document.getElementsByClassName("hobby");
+        for (var i = 0; i < list.length; i++) {
+          list[i].style.color = "salmon";
+        }
+      }
+
+      function addList() {
+        var newList = document.createElement("li");
+        
+        var newHobby = prompt("추가할 취미를 입력하세요");
+        var newHobby1 = prompt("추가할 취미를 입력하세요");
+        newList.innerHTML = newHobby+newHobby1;
+
+        var list = document.getElementById("list");
+        list.appendChild(newList);
+      }
+      function removeList() {
+        // var list = document.getElementById("list");
+        // var targetList = document.getElementsByClassName("hobby");
+        // var target = targetList[targetList.length - 1];
+        // list.removeChild(target);
+
+        var list = document.getElementById("list");
+        var targetList = document.getElementsByClassName("hobby");
+        var hobbyNum = parseInt(prompt("삭제할 리스트의 번호를 입력하세요 : "));
+        var target = targetList[hobbyNum - 1];
+        list.removeChild(target);
+      }
+    </script>
+  </head>
+  <body>
+    <h2>취미</h2>
+    <ol id="list">
+      <li class="hobby"></li>
+     
+      
+      
+    </ol>
+
+    <input type="button" value="취미바꾸기" onclick="changeHobby()" />
+
+    <input type="button" value="글자색 바꾸기" onclick="changeColor()" />
+    <input type="button" value="리스트추가" onclick="addList()" />
+    <input type="button" value="리스트삭제" onclick="removeList()" />
+  </body>
+</html>

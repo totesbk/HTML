@@ -1,0 +1,86 @@
+<head>
+    <style>
+        .content {
+            background-color: aliceblue;
+            color: blue;
+            width: 200px;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+
+        .red {
+            background-color: red;
+
+            transition: width 5s, width 3s, border 5s, transform 5s;
+        }
+
+        .yellow {
+            background-color: yellow;
+            /* transform: translate(10px,20px); */
+            /* transform: scale(1.5,1.5); */
+            transform: rotate(50deg);
+
+
+        }
+
+        .blue {
+            background-color: blue;
+            position: relative;
+            animation: myMover 8s;
+            animation-iteration-count: 2;
+
+        }
+
+        @keyframes myMover {
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+
+            25% {
+                left: 100px;
+                top: 0px;
+
+            }
+
+            50% {
+                left: 100px;
+                top: 100px;
+
+            }
+
+            75% {
+                left: 0px;
+                top: 100px;
+
+            }
+
+            100% {
+                left: 0px;
+                top: 0px;
+
+            }
+        }
+
+        .red:hover {
+            width: 200px;
+            height: 200px;
+            border: 3px solid black;
+            transform: rotate(5760deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="box red">box red</div>
+        <div class="box yellow">box yellow</div>
+        <div class="box blue">box blue</div>
+
+    </div>
+</body>

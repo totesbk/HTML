@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function fillMenu(){
+      document.getElementById('name').value = '홍길동';
+      document.getElementById('age').value=25;
+      document.getElementById('female').checked = true;
+      document.getElementById('fishing').checked=true;
+      document.getElementById('stringFigure').checked=true;
+      document.getElementById('job').options.selectedIndex=1;
+      document.getElementById('comment').value='잘 부탁드립니다.';
+
+    }
+  </script>
+</head>
+<body>
+  <form action="#" method="GET">
+    이름 : <input type="text" name="name" id="name"><br>
+    나이 : <input type="number" name="age" id="age"><br>
+    성별<br>
+    남 <input type="radio" name="gender" id="male" value="male"><br>
+    여 <input type="radio" name="gender" id="female" value="female"><br>
+    취미<br>
+    독서 <input type="checkbox" name="hobby" id="reading">
+    축구 <input type="checkbox" name="hobby" id="soccer">
+    낚시 <input type="checkbox" name="hobby" id="fishing"><br>
+    실뜨기 <input type="checkbox" name="hobby" id="stringFigure">
+    배구 <input type="checkbox" name="hobby" id="volleyball">
+    등산 <input type="checkbox" name="hobby" id="climing"><br>
+    직업:
+    <select name="job" id="job">
+      <option value="frontEnd">프론트엔드 개발자</option>
+      <option value="backEnd">백엔드 개발자</option>
+      <option value="mobile">모바일 개발자</option>
+      <option value="graphic">그래픽엔진 개발자</option>
+    </select><br>
+    하고싶은말<br>
+    <textarea name="comment" id="comment" cols="30" rows="10"></textarea><br>
+    <input type="button" value="btn" id="btn" onclick="fillMenu()">
+    
+    
+  </form>
+</body>
+</html>

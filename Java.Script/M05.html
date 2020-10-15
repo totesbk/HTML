@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var backColor=['aqua','black','coral','white','yello','red','cornflowerblue','violet','blue','gold'];
+
+    function changeColor(){
+    var num=Math.floor(Math.random()*(10-0+1))+0;
+    document.getElementById('bodyColor').style.backgroundColor=backColor[num];
+  }
+</script>
+</head>
+<body id="bodyColor" style="background-color: blue;">
+  <input type="button" value="배경색 변겅" onclick="changeColor()">
+  
+</body>
+</html>

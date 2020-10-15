@@ -1,0 +1,68 @@
+<form action="#" method="GET">
+    <fieldset>
+        
+        <legend>기본정보</legend>
+        
+            <label for="id">ID</label>
+            <input type="text" id="id" placeholder="아이디를 입력하세요">
+            <br>
+
+            <label for="pw">비밀번호</label>
+            <input type="text" id="id" placeholder="비밀번호를 입력하세요" minlength="5" maxlength="15"><br><br><br><br>
+
+            <label for="pw">비밀번호 확인</label>
+            <input type="text" id="pw" placeholder="비밀번호를 다시 입력하세요">
+           <br>
+            <label for="email">이메일</label>
+            <input type="text" id="eamil" placeholder="이메일을 입력하세요">
+            <br>
+            <label for="phone">전화번호</label>
+            <input type="text" id="phone" placeholder="전화번호를 입력하세요">
+            <br>
+            <label for="gender">성별</label>
+            <br>
+            <input type="radio" name="gender" value="male" id="gender">남성
+            <input type="radio" name="gender" value="female" id="gender">여성<br>
+
+        </form>
+    </fieldset>
+   
+    <fieldset>
+        <legend>기타정보</legend>
+       
+            <label for="name">나이</label>
+            <input type="text" id="name" placeholder="나이를 입력하세요" maxlength="120" minlength="1"><br>
+
+            <br>
+            <label for="hobby">취미</label><br>
+            
+            <input type="checkbox" name="hobby" value="tabletennis" id="hobby">탁구 
+            <input type="checkbox" name="hobby" value="basketball" id="hobby"> 농구
+            <input type="checkbox" name="hobby" value="football" id="hobby"> 축구<br>
+            <input type="checkbox" name="hobby" value="reading" id="hobby"> 독서
+            <input type="checkbox" name="hobby" value="one" id="hobby"> 뜨개질
+            <input type="checkbox" name="hobby" value="ten" id="hobby"> 십자수
+        </br>
+            
+       
+        <label for="car">직업</label>
+        <select name="car" id="car">       
+            <option value="hCar">개발자</option>
+            <option value="kCar">목수</option>
+            <option value="tCar">백수</option>
+            <option value="rCar">의사</option>           
+        </select>
+        <br>
+  </fieldset>
+  
+  <fieldset>
+      <legend>자기소개</legend>
+      <label for="content">
+          <textarea name="content" id="content" cols="30" rows="5"></textarea>
+      </label>
+  </fieldset>
+  
+ 
+   
+</form> 
+

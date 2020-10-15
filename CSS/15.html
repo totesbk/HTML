@@ -1,0 +1,44 @@
+<head>
+    <style>
+        .container{
+            width: 250px;
+            margin: 50 auto;
+            height: 300px;
+            background-color: wheat;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-content: flex-end;
+            
+           
+        }
+        .box{           
+            width: 100px;
+            height: 100px;
+        }
+        .red{
+            background-color: red;   
+            order: 3;      
+           
+            
+        }
+         .yellow{
+            background-color: yellow;
+            order: 1;   
+           
+        }
+        .blue{
+            background-color: blue;        
+            order: 2;   
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box red">Red box</div>
+        <div class="box yellow">Red yellows</div>
+        <div class="box blue">Red blue</div>
+    </div>
+</body>

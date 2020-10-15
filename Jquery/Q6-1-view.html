@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#" method="GET">
+      <fieldset>
+        <legend>게시글 보기</legend>
+        <label for="num">글 번호</label>
+        <input type="text" name="num" id="num" readonly /><br />
+        <label for="name">작성자</label>
+        <input type="text" name="name" id="name" /><br />
+        <label for="title">글 제목</label>
+        <input type="text" name="title" id="title" /><br />
+        <label for="content">글 내용</label><br />
+        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+      </fieldset>
+      <input type="button" value="게시물 수정" onclick="change()" />
+      <input type="button" value="게시물로 돌아가기" onclick="returnList()" />
+    </form>
+    <script>
+      var list = JSON.parse(localStorage.getItem("list"));
+      var idx = -1;
+      window.onload = function () {
+        idx = location.href.substr(location.href.lastIndexOf("=") + 1);
+        document.getElementById("num").value = parseInt(idx) + 1;
+        document.getElementById("name").value = list[idx].name;
+        document.getElementById("title").value = list[idx].title;
+        document.getElementById("content").value = list[idx].content;
+      };
+      function returnList() {
+        location.href = "./Q6-list.html";
+      }
+      function Board(name, title, content, regDate) {
+        this.name = name;
+        this.title = title;
+        this.content = content;
+        this.regDate = regDate;
+      }
+      function change() {
+        var regDate = new Date().toLocaleString();
+        var board = new Board(
+          document.getElementById("num").value,
+          document.getElementById("title").value,
+          document.getElementById("content").value,
+          regDate
+        );
+        localStorage.setItem("board", JSON.stringify(board));
+
+        list[idx] = board;
+        localStorage.setItem("list", JSON.stringify(list));
+
+        returnList();
+      }
+    </script>
+  </body>
+</html>

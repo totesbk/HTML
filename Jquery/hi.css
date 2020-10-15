@@ -1,0 +1,43 @@
+.main1 {
+  margin: 0;
+  padding-left: 0px;
+  width: 1300px;
+  height: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.slider1 {
+  position: relative;
+  width: 1300px;
+  overflow: hidden;
+}
+.images {
+  display: flex;
+  width: 1300px;
+}
+.images img {
+  height: 360px;
+  width: 1300px;
+  transition: all 0.7s ease;
+}
+.images input {
+  position: relative;
+  top: 340px;
+  left: 50%;
+  transition: all 0.7s ease;
+  cursor: pointer;
+}
+#image1:checked ~ .no1 {
+  margin-left: 0;
+}
+#image2:checked ~ .no2 {
+  margin-left: -100%;
+}
+#image3:checked ~ .no3 {
+  margin-left: -200%;
+}
+#image4:checked ~ .no4 {
+  margin-left: -300%;
+}

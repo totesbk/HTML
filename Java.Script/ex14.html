@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+  var test = function test(){
+    var start = new Date();
+    for (var i=1;i<1000000000;i++){ 
+      sum+=i;
+    }
+    var end = new Date();
+    var testTime = end - start;
+    document.getElementById('testTime').innerHTML = ('걸린 시간'+testTime);
+  }
+  </script>
+</head>
+
+<body>
+<input type="button" value="테스트" onclick="test()">
+<p id="testTime"></p>
+</body>
+
+</html>

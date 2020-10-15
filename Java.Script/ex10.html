@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function nightMode(){
+    document.querySelector('body').style.backgroundColor='black';
+    document.querySelector('body').style.color='white';
+    // document.querySelector('a').style.color='blue';
+    var aList = document.querySelectorAll('a');
+    aList[0].style.color='lightskyblue'
+    aList[1].style.color='lightskyblue'
+  }
+  function dayMode(){
+    document.querySelector('body').style.backgroundColor='indigo';
+    document.querySelector('body').style.color='black';
+    var aList = document.querySelectorAll('a');
+    aList[0].style.color='blue'
+    aList[1].style.color='blue'
+  }
+  </script>
+
+</head>
+<body>
+  <button onclick="nightMode()">night버튼</button>
+  <input type="button" value="day버튼" onclick="dayMode()">
+  <p>안녕하세요</p>
+   <a href="https://www.google.com">구글</a>  
+   <a href="https://www.naver.com">네이버</a>
+</body>
+</html>

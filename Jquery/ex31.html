@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+  <button onclick="count()">버튼을 눌러주세요.</button>
+  <p id="test"></p>
+
+  <script>
+    // 세션 스토리지 --브라우저가 켜있는 동안 데이터 저장
+    // 사용법 저장기능(변경), 불러오기,삭제
+    // 저장된 데이터의 형태  key = value
+
+    var a = 10;
+    //alert(a);
+    sessionStorage.setItem('num',a); //세션스토리지 데이터 저장
+    var b = sessionStorage.getItem('num');//세션스토리지 데이터 불러오기
+    
+    alert(b);
+    sessionStorage.setItem('num',30); //키가 이미 존재하는 경우 value를 변경
+    //버튼을 만들어서 클릭할때마다 cnt가 증가하도록 프로그래밍
+    sessionStorage.setItem('cnt',0);
+   
+    function count(){
+      var cnt=parseInt(sessionStorage.getItem('cnt'));
+      cnt++;
+      document.getElementById('test').innerHTML=cnt;
+      sessionStorage.setItem('cnt',cnt);
+    }
+
+    //삭제
+    // sessionStorage.removeItem('num');
+    //해당 키와값을 삭제한다.
+    // sessionStorage.clear(); //모든 키와 값을 삭제한다.
+
+    //도메인이 같으면 같이 저장되는 공간 => localStroage
+    localStorage.setItem('name','쥬네스');
+    localStorage.setItem('tel','010-3239-0104');
+    
+    var loginInfo = {
+      'id':'hong',
+      'pw':'1234',
+      'name':'홍길동'
+    };
+    localStorage.setItem('info',JSON.stringify(loginInfo));
+  </script>
+</body>
+</html>

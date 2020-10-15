@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="kiaCus.CSS" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <img src="../images/기아새로고.jpg" alt="" id="kia" />
+    <div class="di">
+      <table border="1">
+        <h3 id="cen">고객센터 게시판</h3>
+        <thead>
+          <tr>
+            <th class="num">문의 번호</th>
+            <th class="num">문의 유형</th>
+            <th class="num">내용</th>
+            <th class="num">작성자</th>
+            <th class="num">작성일</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+
+        <tfoot>
+          <td colspan="2">
+            <input type="button" value="글 작성" onclick="input()" id="gul1" />
+          </td>
+          <td colspan="2">
+            <input type="button" value="전체 글 삭제" onclick="listClear()" id="gul" />
+          </td>
+        </tfoot>
+      </table>
+    </div>
+
+    <script>
+      var list = JSON.parse(localStorage.getItem("list"));
+      window.onload = function () {
+        if (list == undefined) {
+          localStorage.setItem("list", JSON.stringify([])); //제
+          return;
+        }
+        var tBody = document.getElementById("tbody");
+        tBody.innerHTML = "";
+
+        for (var i = 0; i < list.length; i++) {
+          var tr = document.createElement("tr");
+          var td1 = document.createElement("td");
+          td1.innerHTML = i + 1;
+          var td2 = document.createElement("td");
+          td2.innerHTML = list[i].select;
+          var td3 = document.createElement("td");
+          td3.innerHTML = list[i].content;
+          var td4 = document.createElement("td");
+          td4.innerHTML = list[i].name;
+          var td5 = document.createElement("td");
+          td5.innerHTML = list[i].regDate;
+
+          tr.appendChild(td1);
+          tr.appendChild(td2);
+          tr.appendChild(td3);
+          tr.appendChild(td4);
+          tr.appendChild(td5);
+
+          tBody.appendChild(tr);
+        }
+      };
+      function input() {
+        location.href = "./kiaInput.html";
+      }
+      function listClear() {
+        localStorage.clear();
+        localStorage.setItem("list", JSON.stringify([]));
+        p0;
+        location.reload();
+      }
+    </script>
+  </body>
+</html>

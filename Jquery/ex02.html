@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-3.51.js"></script>
+</head>
+<body>
+  <h2></h2>
+  <h2></h2>
+  <h2></h2>
+  <h2></h2>
+
+
+<script>
+//태그의 콘텐츠를 넣는 방법
+//setter
+// $('h2').html('커피는쓰다')
+
+// $('h2').html(function(){
+//       return 'hello'+index;
+// });
+// $("h2").html("<img src ='http://placehold.it/100x100'> Hello World!!");
+$("h2").html(function (index) {
+     return (
+          "<img src='http://placehold.it/100x" +
+          100 * (index + 1) +
+          "'>Hello World!!"
+        );
+      });
+
+
+
+//getter
+var str = $("h2").html();
+        alert(str);
+        var str2 = $("h2").text();
+        alert(str2);
+
+</script>
+
+
+
+</body>
+</html>

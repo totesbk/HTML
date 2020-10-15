@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //자바스크립트로 랜덤값 만드는 방법
+   var r = Math.floor((Math.random()*100)+1); //서상우
+    //1부터 100까지 임의의 수
+    
+   
+    var cnt=0;
+    
+    while(true){  
+      var a = parseInt(prompt('숫자를 입력하세요.')); //컴퓨터
+      if(r>a) {
+        alert('업');
+        cnt++;
+      }else if(r<a){
+        alert('다운');
+        cnt++;
+      }else if(r==a){
+        alert('성공');
+        break;
+        document.write(cnt);
+      }
+      
+      
+    }
+    document.write(cnt+'번째만에 성공하셨습니다.')
+      
+
+    
+
+
+ 
+
+  </script>
+
+
+</body>
+</html>

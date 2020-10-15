@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = function(){
+      var a = document.getElementById('naver');
+      a.addEventListener('click',function(e){
+        if(!confirm('네비어로 진짜 이동하시겠습니다?')){
+          console.log(e.cancelBubble);
+          e.preventDefault(); //기본기능차단
+
+
+        };
+      },false)
+    };
+  </script>
+</head>
+<body>
+  <a href="https://www.naver.com" id="naver">naver</a>
+</body>
+</html>

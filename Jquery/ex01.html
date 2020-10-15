@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-3.51.js"></script>
+</head>
+<body>
+  <h1>서상우입니다</h1>
+  <h1>김승환입니다.</h1>
+  <h1>이슬비입니다.</h1>
+  <script>
+    //setter
+  //   $('h1').css('backgroundColor','yellow')
+  //   .css('color','blue').css('text-align','center');
+  // // $('h1').css({
+  //   'color':'blue',
+  //   'background-color':'lightGreen',
+  //   'text-align':'center'
+  // $('h1')
+  // .css('background-color','yellow')
+  // .css('color','red')
+  // .css('text-align',function(){
+  //   return 'center';
+  // });
+  // function redColor(){
+  //   return 'red';
+  // }
+  var array=['red','blue','green','orange'];
+  $('h1').css('color',function(index){
+        return array[index];
+  });
+  
+
+  // });
+  
+    //getter(매개값을 하나 생략) =>무조건 첫번째태그값만 가져온다.
+   var value=$('h1').css('color');
+   alert(value);
+   var value2=$('h1').css('backgroundColor');
+   alert(value2);
+  </script>
+</body>
+</html>

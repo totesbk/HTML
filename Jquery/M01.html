@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./jquery-3.51.js"></script>
+    <script src="./jquery-ui.js"></script>
+    <style>
+      * {
+        text-align: center;
+        font-family: "Alata", sans-serif;
+        background-color: lightblue;
+      }
+
+      .body {
+        background-color: lightgray;
+      }
+
+      .header {
+        margin-top: 5px;
+        font-size: 30px;
+      }
+
+      .week {
+        width: 632px;
+        margin: 0 auto;
+      }
+
+      .week > * {
+        width: 80px;
+        float: left;
+        border: 1px solid black;
+      }
+
+      .calendar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      #content {
+        margin: auto;
+        border: 1px black solid;
+      }
+
+      .calendarBody {
+        margin-top: 10px;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        height: 550px;
+        justify-content: space-around;
+      }
+
+      .dayDay {
+        width: 63px;
+        font-size: 27px;
+        margin: 15px auto;
+        padding: 20px;
+        border: 1px rgb(167, 166, 166) dotted;
+      }
+
+      .weekLine {
+        width: 632px;
+        height: 100px;
+        margin: 0 auto;
+      }
+
+      .weekLine > * {
+        width: 80px;
+        height: 100px;
+        float: left;
+        border: 1px solid black;
+      }
+
+      .sun {
+        color: red;
+      }
+
+      .sat {
+        color: blue;
+      }
+
+      .title {
+        color: lightcoral;
+      }
+
+      .todo {
+        text-align: center;
+        position: fixed;
+        right: 100px;
+        height: 300px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="title">Calendar</h1>
+    <div class="content">
+      <div id="calendar">
+        <div>
+          <input
+            type="month"
+            name="selectMonth"
+            id="selectMonth"
+            onchange="selMonth()"
+          />
+        </div>
+        <div id="header">2020.08</div>
+        <div class="week">
+          <div class="day sun">일</div>
+          <div class="day">월</div>
+          <div class="day">화</div>
+          <div class="day">수</div>
+          <div class="day">목</div>
+          <div class="day">금</div>
+          <div class="day sat">토</div>
+        </div>
+
+        <div id="ssw">
+          <h3 class="todo">🤷‍♀️Todolist🤷‍♀️</h3>
+        </div>
+
+        <div id="calendarBody"></div>
+      </div>
+    </div>
+    <script>
+      window.onload = function () {
+        var now = new Date();
+        changeHead(now);
+        var nowMonth = new Date(now.getFullYear(), now.getMonth());
+        buildCalendar(nowMonth);
+      };
+
+      function selMonth() {
+        var yearMonth = document.getElementById("selectMonth").value;
+        var selectYearMonth = new Date(yearMonth); //선택한 년 월을 가지고 온다
+        changeHead(selectYearMonth);
+        buildCalendar(selectYearMonth);
+      }
+
+      function changeHead(selectDate) {
+        document.getElementById("header").innerHTML =
+          selectDate.getFullYear() +
+          "년&nbsp;" +
+          (selectDate.getMonth() + 1) +
+          "월";
+      }
+
+      function buildCalendar(selectDate) {
+        var calendar = document.getElementById("calendarBody");
+        calendar.innerHTML = "";
+
+        var monthLastDay = lastDate(selectDate); //해당 월의 마지막 날을 구하는 함수
+        var weekInfo = selectDate.getDay(); //주 정보 가져오기. 일요일 0 월요일 1 토요일 6
+        var dateCnt = selectDate.getDate() - weekInfo; //날짜 카운트 초기값
+
+        while (true) {
+          var weekLine = document.createElement("div");
+          weekLine.setAttribute("class", "weekLine");
+          for (var weekCnt = 0; weekCnt < 7; weekCnt++) {
+            var weekDay = document.createElement("div");
+            if (weekCnt == 0) {
+              weekDay.setAttribute("class", "sun");
+            } else if (weekCnt == 6) {
+              weekDay.setAttribute("class", "sat");
+            }
+            var spanDay = document.createElement("span");
+
+            if (0 < dateCnt && dateCnt <= monthLastDay) {
+              spanDay.innerHTML = dateCnt;
+              weekDay.appendChild(spanDay);
+
+              spanDay.setAttribute("onclick", "todo(this)");
+            }
+
+            dateCnt++;
+            weekLine.appendChild(weekDay);
+          }
+          calendar.appendChild(weekLine);
+          if (dateCnt > monthLastDay) {
+            break;
+          }
+        }
+      }
+
+      function lastDate(selectDate) {
+        var year = selectDate.getFullYear();
+        var month = selectDate.getMonth();
+        var monthArr = [31, 28, 31, 30, 31, 30, 31, 31, 36, 31, 30, 31];
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+          monthArr[1] = 29;
+        }
+        return monthArr[month];
+      }
+
+      function todo(day) {
+        var dayTodo = prompt("할일을 입력해 주세요");
+        var divBox = document.createElement("p");
+        divBox.innerHTML += dayTodo;
+        var ssw = document.getElementById("ssw");
+        day.appendChild(divBox);
+        ssw.appendChild(divBox);
+      }
+    </script>
+  </body>
+</html>

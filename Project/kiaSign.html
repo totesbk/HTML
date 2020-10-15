@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="kiaSign.CSS" />
+  </head>
+
+  <body>
+    <div class="signIn">
+      <img src="../images/기아새로고.jpg" alt="" id="kia" />
+      <h1 id="kiaFirst">기아멤버스 회원가입</h1>
+      <p>회원가입을 시작합니다.</p>
+    </div>
+    <hr />
+    <form action="#" method="GET" class="form">
+      <table id="ssw95">
+        <tr>
+          <td>
+            <label for="id" class="sign">ID : </label>
+          </td>
+          <td colspan="2"><input type="text" name="id" class="id" /><br /></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="pw" class="sign">PW : </label>
+          </td>
+          <td colspan="2"><input type="text" name="pw" class="pw" /><br /></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="name" class="sign">이름 : </label>
+          </td>
+          <td colspan="2"><input type="text" name="name" class="name" /><br /></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="phone" class="sign">전화번호 : </label>
+          </td>
+          <td colspan="2"><input type="text" name="phone" class="phone" /><br /></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email" class="sign">E-mail : </label>
+          </td>
+          <td colspan="2"><input type="text" name="email" class="email" /><br /><br /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="button" value="회원가입" onclick="input()" />
+          </td>
+          <td>
+            <input type="button" value="돌아가기" onclick="returnList()" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <script>
+      var list = JSON.parse(localStorage.getItem("list"));
+      window.onload = function () {
+        if (list == undefined) {
+          localStorage.setItem("list", JSON.stringify([])); //제
+          return;
+        }
+      };
+      function Board(id, pw, name, phone, email) {
+        this.id = id;
+        this.pw = pw;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+      }
+
+      function input() {
+        var id = document.getElementsByClassName("id")[0].value;
+        var pw = document.getElementsByClassName("pw")[0].value;
+        var name = document.getElementsByClassName("name")[0].value;
+        var phone = document.getElementsByClassName("phone")[0].value;
+        var email = document.getElementsByClassName("email")[0].value;
+
+        var list = JSON.parse(localStorage.getItem("list"));
+
+        var board = new Board(id, pw, name, phone, email);
+        list.push(board);
+        localStorage.setItem("list", JSON.stringify(list));
+
+        alert("회원가입 성공!");
+        returnList();
+      }
+
+      function returnList() {
+        location.href = "./kia.html";
+      }
+    </script>
+  </body>
+</html>

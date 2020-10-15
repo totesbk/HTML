@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-3.51.js"></script>
+</head>
+<body>
+  <input type="checkbox" id="all-check">
+  <Label>All</Label>
+  <div id="check-items">
+    <input type="checkbox" checked>
+    <Label>A Option</Label>
+    <input type="checkbox">
+    <Label>B Option</Label>
+    <input type="checkbox">
+    <Label>C Option</Label>
+  </div>
+  <script>
+    $(document).ready(function(){
+        $('#all-check').change(function(){
+          if(this.checked){
+              $('#check-items').children().prop('checked',true);
+          }else{
+            $('#check-items').children().prop('checked',false);
+          }
+        });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-3.51.js"></script>
+  <style>
+    .reverse{
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Header - 0</h1>
+  <h1>Header - 1</h1>
+  <h1>Header - 2</h1>
+
+  <script>
+    // $(document).ready(function(){
+    //   $('h1').on('click',function(){
+    //     $(this).html(function(index,html){
+    //       return html+'+';
+    //     });
+    //   });
+    // });
+    // $(document).ready(function(){
+    //   $('h1').on({
+    //     mouseenter : function(){
+    //         $(this).addClass('reverse')
+    //     },
+    //     mouseleave : function(){
+    //         $(this).removeClass('reverse')
+    //     }
+    //   });
+    // });
+ 
+    $(document).ready(function(){
+  //     $('h1').on('click',function(){
+  //       $(this).toggleClass('reverse');
+  //     });
+  //   });
+  //  $('h1').click(function(){
+  //    $(this).toggleClass('reverse');
+  //  });
+  // $('h1').mouseenter(function(){
+  //   $(this).addClass('reverse');
+  // });
+  // $('h1').mouseleave(function(){
+  //   $(this).removeClass('reverse');
+  // });
+
+  // $('h1').hover(function(){
+  //   $(this).addClass('reverse');
+  // },function(){
+  //   $(this).removeClass('reverse');
+  // });
+  // $('h1').on('click',function(){
+  //     $(this).addClass('reverse');
+  // });  
+  
+  //   var functionA=function(){
+  //     $(this).removeClass('reverse');
+  //   };
+  //   var functionB=function(){
+  //     $(this).html('더블클릭');
+  //   };
+  //   $('h1').on('dblclick',functionA);
+  //   $('h1').on('dblclick',functionB);
+ 
+   // $('h1').off('dblclick');
+  //  $('h1').off('dblclick',functionA);
+      // $('h1').one('click',function(){
+      // alert('클릭 이벤트가 발생했습니다.');
+
+      $('h1').click(function(){
+        $(this).html(function(index,html){
+          return html+'🤷‍♀️'
+        });
+      });
+        setInterval(function(){
+          $('h1').first().trigger('click');
+        },1);
+
+    });
+
+  </script>
+</body>
+</html>

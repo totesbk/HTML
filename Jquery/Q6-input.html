@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#" method="GET">
+      <fieldset>
+        <legend>게시글 작성</legend>
+        <label for="name">작성자</label>
+        <input type="text" name="name" id="name" /><br />
+        <label for="title">글 제목</label>
+        <input type="text" name="title" id="title" /><br />
+        <label for="content">글 내용</label><br />
+        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+      </fieldset>
+      <input type="button" value="게시물 등록" onclick="input()" />
+      <input type="button" value="게시물로 돌아가기" onclick="returnList()" />
+    </form>
+
+    <script>
+      var list = JSON.parse(localStorage.getItem("list"));
+      // var list = new Array();
+
+      function Board(name, title, content, regDate) {
+        this.name = name;
+        this.title = title;
+        this.content = content;
+        this.regDate = regDate;
+      }
+
+      function input() {
+        var name = document.getElementById("name").value;
+        var title = document.getElementById("title").value;
+        var content = document.getElementById("content").value;
+        var regDate = new Date().toLocaleString();
+
+        var board = new Board(name, title, content, regDate);
+        localStorage.setItem("board", JSON.stringify(board));
+        list.push(board);
+        localStorage.setItem("list", JSON.stringify(list));
+
+        returnList();
+      }
+
+      function returnList() {
+        location.href = "./Q6-list.html";
+      }
+    </script>
+  </body>
+</html>

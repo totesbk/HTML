@@ -1,0 +1,225 @@
+* {
+  font-family: "Nunito", sans-serif;
+}
+.body {
+  border-top: 6px solid rgb(198, 25, 45);
+  margin: 0 5px;
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+.container {
+  width: 100%;
+  margin: 0 5px;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  width: 1900px;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+.header ul li {
+  display: inline;
+  list-style: none;
+  background-color: black;
+  color: gray;
+  padding: 12px;
+}
+.header2 {
+  width: 1900px;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid gray;
+}
+.header2 ul li {
+  display: inline;
+  list-style: none;
+  text-align: start;
+  padding: 15px;
+}
+.nav {
+  width: 1900px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  font-size: 30px;
+}
+.nav ul li {
+  display: inline;
+  list-style: none;
+  padding: 15px;
+}
+ul li a {
+  color: white;
+  text-align: start;
+  text-decoration-line: none;
+}
+.nav ul li a img {
+  width: 100px;
+  margin-top: 10px;
+}
+.slider li {
+  background-color: black;
+  height: 800px;
+  color: white;
+  width: 1880px;
+  list-style: none;
+  float: left;
+  text-align: center;
+}
+.footer {
+  background-color: white;
+  height: 500px;
+  color: black;
+  width: 100%;
+  font-size: 45px;
+  font-weight: 700;
+}
+ul {
+  margin: 0 auto;
+  line-height: 3;
+}
+#hello {
+  float: left;
+}
+
+.footer {
+  display: flex;
+  flex-flow: row;
+  background-color: #e6e9ec;
+  padding-left: 170px;
+}
+.footer div {
+  width: 400px;
+  height: 300px;
+  margin-bottom: 100px;
+  margin-right: 130px;
+  margin-top: 0px;
+  margin-left: 10px;
+  font-size: large;
+  font-weight: 700px;
+  color: black;
+}
+.kia {
+  background-color: #e6e9ec;
+  height: 500px;
+  color: black;
+  width: 100%;
+  font-size: 45px;
+  font-weight: 700;
+  margin-top: 0px;
+}
+
+#div01 img {
+  width: 400px;
+  height: 300px;
+  margin-right: 0px;
+}
+#div02 img {
+  width: 400px;
+  height: 300px;
+  margin-left: 0px;
+}
+a {
+  text-decoration-line: none;
+  color: black;
+}
+#div03 img {
+  width: 400px;
+  height: 300px;
+}
+.header a:hover,
+.header2 a:hover,
+.nav a:hover {
+  color: white;
+
+  font-weight: 700;
+}
+.header ul li a {
+  color: lightgray;
+}
+.header2 ul li a {
+  color: lightgray;
+}
+.nav ul li a {
+  color: lightgray;
+}
+.kia p {
+  color: black;
+}
+.container1 {
+  width: 1500px;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.container1 ul li {
+  display: inline;
+  padding: 0px;
+}
+
+#je1 {
+  width: 900px;
+  height: 700px;
+  font-size: 40px;
+  font-weight: 600;
+}
+#je2 {
+  font-size: 40px;
+  font-weight: 600;
+}
+#je3 {
+  height: 600px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.animation_canvas {
+  width: 1900px;
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+}
+.slider_panel {
+  width: 7600px;
+  position: relative;
+}
+.slider_image {
+  float: left;
+  width: 1900px;
+  height: 800px;
+}
+
+.control_panel {
+  position: absolute;
+  top: 750px;
+  left: 900px;
+  height: 13px;
+  overflow: hidden;
+}
+.control_button {
+  width: 12px;
+  height: 46px;
+  position: relative;
+  float: left;
+  cursor: pointer;
+  background: url(../images/point_button.png);
+  margin: 0 7px;
+}
+.sso {
+  position: absolute;
+  width: 150px;
+  left: 150px;
+  margin: 50px;
+  top: 900px;
+  z-index: 100;
+}

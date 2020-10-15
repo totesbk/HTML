@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-3.51.js"></script>
+
+</head>
+<body>
+    <div id="wrap">
+      <h1>Header-0</h1>
+    </div>
+    <script>
+      $(document).ready(function(){
+        $('h1').on('click',function(){
+          var length=$('h1').length; //
+          var targetHTML = $(this).html();
+          $('#wrap').append('<h1>'+length+'-'+'targetHTML'+'</h1>')
+        });
+      });
+        $(document).ready(function(){
+        $('#wrap').on('click','h1',function(){
+          var length=$('h1').length; //
+          var targetHTML = $(this).html();
+          $('#wrap').append('<h1>'+length+'-'+'targetHTML'+'</h1>')
+        });
+      });
+    </script>
+</body>
+</html>

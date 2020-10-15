@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function checkTime(){
+      var time=new Date();
+      alert('현재 시간은 : '+time.toLocaleDateString()+'입니다')
+    } 
+
+    window.onload=function(){
+      var btn=document.getElementById('btn');
+      btn.onmousemove = checkTime;
+
+    }
+  </script>
+</head>
+<body>
+  <input type="button" value="ClickMe" id="btn">
+</body>
+</html>

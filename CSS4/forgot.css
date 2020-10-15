@@ -1,0 +1,87 @@
+.aboutMenu a {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding-top: 5vh;
+}
+
+.searchMain,
+.searchId,
+.searchPwd,
+.resetPwd {
+  width: 1200px;
+  margin: 0 auto;
+  padding-top: 300px;
+  text-align: center;
+  display: block;
+}
+table {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+}
+
+td {
+  width: 500px;
+  text-align: center;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0);
+  font-family: "Bangers", cursive;
+  color: #8d192b;
+  letter-spacing: 5px;
+  border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+table button {
+  padding: 5px;
+  border: 1px solid #8d192b;
+  font-size: 40px;
+}
+
+table button:hover {
+  color: black;
+}
+
+.searchId,
+.searchPwd,
+.resetPwd {
+  font-family: "Bangers", cursive;
+  color: #8d192b;
+  letter-spacing: 5px;
+  font-size: 40px;
+}
+.searchId input,
+.searchPwd input,
+.resetPwd input {
+  width: 400px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #8d192b;
+  border-radius: 5px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 20px;
+  letter-spacing: 5px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.searchId button,
+.searchPwd button,
+.resetPwd button {
+  border: none;
+  padding: 5px;
+  font-size: 30px;
+}
+
+.searchId button:hover,
+.searchPwd button:hover,
+.resetPwd button:hover {
+  font-size: 35px;
+}

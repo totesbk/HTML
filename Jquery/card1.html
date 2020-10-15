@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      #gameBoard {
+        width: 400px;
+        height: 400px;
+        background-color: honeydew;
+        border: 1px black solid;
+        /* display: flex;
+            flex-direction: row;
+            flex-wrap: wrap; */
+      }
+
+      .card {
+        width: 100px;
+        height: 100px;
+        background-color: forestgreen;
+        border: 1px black solid;
+        box-sizing: border-box;
+        float: left;
+        text-align: center;
+        line-height: 100px;
+        /* 높이 가운데 정렬 */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <input type="button" value="게임시작" onclick="start()"> -->
+
+    <script>
+      var randomArr = []; //new Array();
+      //a,a,b,b,c,c,d,d,e,e,f,f,g,g,h,h
+      // 65  66  67  68  69  70  71  72
+      //65+0 +1  +2  +3  +4  +5  +6  +7
+      //i 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+      //%8 0 1 2 3 4 5 6 7 0 1  2  3  4  5  6  7
+      function setRandomArr() {
+        for (var i = 0; i < 16; ) {
+          var rd = Math.floor(Math.random() * 16); //0부터 15까지의 숫자가 나온다.
+          if (!randomArr[rd]) {
+            //이 안에 데이터가 없을 때 트루가 됨.(!)
+            randomArr[rd] = String.fromCharCode((i % 8) + 65);
+            i++;
+          }
+        }
+      }
+
+      function init() {
+        //게임 준비 단계
+        var body = document.getElementsByTagName("body")[0];
+
+        var head = document.createElement("h1");
+        head.innerHTML = "CARD GAME";
+
+        var statusText = document.createElement("p");
+        statusText.setAttribute("id", "outMsg");
+
+        var gameBoard = document.createElement("div");
+        gameBoard.setAttribute("id", "gameBoard");
+
+        setRandomArr(); //카드를 섞는다.
+
+        for (var i = 0; i < randomArr.length; i++) {
+          var gameCard = document.createElement("div");
+          gameCard.classList.add("card");
+          gameCard.setAttribute("id", "card" + randomArr[i]);
+          gameCard.innerHTML = randomArr[i];
+          gameCard.card = randomArr[i];
+          gameBoard.appendChild(gameCard);
+        }
+        body.appendChild(head);
+        body.appendChild(statusText);
+        body.appendChild(gameBoard);
+      }
+
+      function start() {
+        //게임시작
+        var statusText = document.getElementById("outMsg");
+        statusText.innerHTML = "5초 호웨 게임이 시작됩니다.";
+
+        var timeCnt = 5;
+
+        var ready = setInterval(function () {
+          timeCnt--;
+          statusText.innerHTML = timeCnt + "초 후에 게임이 시작됩니다.";
+          if (timeCnt == 0) {
+            statusText.innerHTML = "게임을 시작합니다.";
+            clearInterval(ready); //레디라고 하는 인터벌을 지우겠다.
+          }
+        }, 1000);
+
+        setTimeout(function () {
+          var cards = document
+            .getElementById("gameBoard")
+            .getElementsByTagName("div");
+          for (var i = 0; i < cards.length; i++) {
+            cards[i].innerHTML = "";
+          }
+          action(cards);
+        }, 5000);
+      }
+
+      function action(cards) {
+        //사용자가 게임을 하는 내용
+        var statusText = document.getElementById("outMsg");
+
+        var tmp = null; //이전에 선택한 카드가 있다면 이 곳에 보관
+
+        for (var i = 0; i < cards.length; i++) {
+          cards[i].onclick = function () {
+            this.innerHTML = this.card;
+            this.style.backgroundColor = "#ff9f9f";
+            if (tmp == null) {
+              //첫번째 카드선택
+              tmp = this;
+            } else {
+              //두번째 카드선택
+              if (tmp == this) {
+                //첫번째와 같은 카드를 선택한 경우
+                statusText.innerHTML = "같은 카드를 선택했습니다.";
+                return;
+              } else if (tmp.card == this.card) {
+                statusText.innerHTML = "짝 맞추기 성공!";
+              } else {
+                statusText.innerHTML = "틀렸습니다.";
+                tmp.innerHTML = "";
+                this.innerHTML = "";
+                tmp.style.backgroundColor = "";
+                this.style.backgroundColor = "";
+              }
+              tmp = null;
+            }
+          };
+        }
+      }
+
+      window.onload = function () {
+        init();
+        start();
+      };
+    </script>
+  </body>
+</html>

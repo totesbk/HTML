@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="to do리스트 등록" onclick="createList()">
+  <ul id="toDoList" style="list-style-type: none;">
+  </ul>
+
+  <script>
+    function createList(){
+      var toDo=prompt('할일을 입력하세요.');
+
+      var inputChecked=document.createElement('input');
+      inputChecked.setAttribute('type','checkbox');
+      inputChecked.setAttribute('onchange','line(this)');
+
+      var span=document.createElement('span');
+      span.setAttribute('class','toggle');
+      span.innerHTML=toDo;
+     
+      var img=document.createElement('img');
+      img.setAttribute('src','../images/cancellation-clip-art-cancel-button-png-pic.jpg');
+      img.setAttribute('alt','cancel');
+      img.setAttribute('width','30px');
+      img.setAttribute('height','30px');
+      img.setAttribute('onclick','delList(this)');
+      
+      var newLi=document.createElement('li');
+      newLi.setAttribute('class','toDoItems');
+      newLi.appendChild(inputChecked);    
+      newLi.appendChild(span);
+      newLi.appendChild(img);
+      var list = document.getElementById('toDoList');
+      list.appendChild(newLi);
+
+    }
+    function delList(tag){
+      var pNode=tag.parentNode;
+      console.log(pNode);
+      var list = document.getElementById('toDoList');
+      list.removeChild(pNode);
+
+    }
+
+    function line(tag){ //줄
+            var sNode = tag.nextElementSibling;
+            if(sNode.hasAttribute("class")){
+                sNode.style.textDecoration = "line-through";
+                sNode.removeAttribute("class");
+            }else{ //사실 이해 안감
+                sNode.style.textDecoration = "none";
+                sNode.setAttribute("class","toggle");
+            }
+        }
+
+  </script>
+</body>
+</html>

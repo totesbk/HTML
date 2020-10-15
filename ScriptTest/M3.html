@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    #calendar {
+      border-color: rosybrown;
+      margin: 0 auto;
+    }
+
+    .sun {
+      color: salmon;
+    }
+
+    .sat {
+      color: steelblue;
+    }
+
+    h1 {
+      color: sandybrown;
+      text-align: center;
+    }
+
+    body {
+      background-color: whitesmoke;
+
+    }
+
+    table tbody tr td {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>CALENDAR</h1>
+  <table border="1" id="calendar">
+    <thead>
+      <tr>
+        <td colspan="7">
+          <input type="month" name="selectMonth" id="selectMonth" onchange="selMonth()">
+        </td>
+      </tr>
+      <tr>
+        <th colspan="7" id="head"></th>
+      </tr>
+      <tr id="day">
+        <th class="sun">SUN</th>
+        <th>MON</th>
+        <th>TUE</th>
+        <th>WED</th>
+        <th>THU</th>
+        <th>FRI</th>
+        <th class="sat">SAT</th>
+      </tr>
+    <tbody id="calendarBody">
+
+    </tbody>
+    </thead>
+  </table>
+
+  <script>
+    window.onload = function () {
+      var now = new Date();
+      changeHead(now);
+      var nowMonth = new Date(now.getFullYear(), now.getMonth());
+      buildCalendar(nowMonth);
+    }
+
+    function selMonth() {
+      var yearMonth = document.getElementById("selectMonth").value;
+      var selectYearMonth = new Date(yearMonth); //선택한 년 월을 가지고 온다
+      changeHead(selectYearMonth);
+      buildCalendar(selectYearMonth);
+
+    }
+
+    function changeHead(selectDate) {
+      document.getElementById("head").innerHTML = selectDate.getFullYear() + "년&nbsp;" + (selectDate.getMonth() + 1) +
+        "월";
+    }
+
+    function buildCalendar(selectDate) {
+      var calendar = document.getElementsById("calendarBody");
+      calendar.innerHTML = "";
+
+      var monthLastDay = lastDate(selectDate); //해당 월의 마지막 날을 구하는 함수
+      var weekInfo = selectDate.getDay(); //주 정보 가져오기. 일요일 0 월요일 1 토요일 6
+      var dateCnt = selectDate.getDate() - weekInfo; //날짜 카운트 초기값
+
+      while (true) {
+        var weekLine = document.createElement("tr");
+        for (var weekCnt = 0; weekCnt < 7; weekCnt++) {
+          var weekDay = document.createElement("td");
+          if (weekCnt == 0) {
+            weekDay.setAttribute("class", "sun");
+          } else if (weekCnt == 6) {
+            weekDay.setAttribute("class", "sat");
+          }
+          var spanDay = document.createElement('span');
+
+          if (0 < dateCnt && dateCnt <= monthLastDay) {
+            spanDay.innerHTML = dateCnt;
+            weekDay.appendChild(spanDay);
+
+
+
+            spanDay.setAttribute("onclick", "todo(this)");
+
+          }
+
+
+          dateCnt++;
+          weekLine.appendChild(weekDay);
+        }
+        calendar.appendChild(weekLine);
+        if (dateCnt > monthLastDay) {
+          break;
+        }
+      }
+    }
+
+    function lastDate(selectDate) {
+      var year = selectDate.getFullYear();
+      var month = selectDate.getMonth();
+      var monthArr = [31, 28, 31, 30, 31, 30, 31, 31, 36, 31, 30, 31]
+      if (year % 4 == 0 && (year % 100 != 0) || year % 400 == 0) {
+        monthArr[1] = 29;
+      }
+      return monthArr[month];
+
+    }
+
+    function todo(day) {
+      var dayTodo = prompt("할일을 입력해 주세요");
+      var divBox = document.createElement("div");
+      divBox.innerHTML += dayTodo;
+
+      day.appendChild(divBox);
+    }
+  </script>
+</body>
+
+</html>

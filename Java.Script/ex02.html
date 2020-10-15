@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write('<h1>인삿말</h1>');
+    </script>
+
+    <h2>과일목록</h2>
+    <ul>
+        <script>
+            var a = '사과';
+            var b = '복숭아';
+            var c = '수박';
+            document.write('<li>'+a+'</li>');
+            document.write('<li>'+b+'</li>');
+            document.write('<li>'+c+'</li>');
+        </script>
+    </ul>
+    <script>
+        
+        var kor=70;
+        var eng=60;
+        var math=80;
+
+        document.write('<p><strong>총점</strong>: '+(kor+eng+math)+'</p>');
+
+    </script>
+    <h2>합격여부</h2>
+   
+   <script>
+        var avg = (kor+eng+math)/3;
+        document.write('평균 : '+avg);
+        (avg>=60)?(alert('합격')):(alert('불합격'));
+    </script>
+
+
+
+
+</body>
+</html>

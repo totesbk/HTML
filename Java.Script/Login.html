@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+ 
+    
+    var login=function(){
+      var sId=document.getElementById('sId').value;
+      var sPw=document.getElementById('sPw').value;
+     
+     var id='12345';
+     var pw='1234';
+
+      if(id==sId && pw==sPw){
+        alert('로그인 성공')
+
+      }else{
+        alert('로그인 실패')
+      }
+
+     
+    }
+  </script>
+</head>
+<body>
+  회원가입 시작<br>
+  아이디 : <input type="text" name="sId" id="sId">
+  비밀번호 : <input type="password" name="sPw" id="sPw"><br>
+
+  <input type="button" value="로그인" onclick="login()">
+</body>
+</html>

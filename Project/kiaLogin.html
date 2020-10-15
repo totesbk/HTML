@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="kiaLogin.CSS" />
+  </head>
+  <body>
+    <img src="../images/기아새로고.jpg" alt="" id="kiaimg" />
+    <h1 class="kia">KIA MOTORS LOGIN</h1>
+    <form action="#" method="GET" class="form">
+      <table>
+        <tr>
+          <td>
+            <label for="id" class="sign">ID : </label>
+          </td>
+          <td colspan="2"><input type="text" name="id" class="id" placeholder="아이디를 입력하세요." /><br /></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="pw" class="sign">PW : </label>
+          </td>
+          <td colspan="2"><input type="text" name="pw" class="pw" placeholder="비밀번호를 입력하세요." /><br /></td>
+        </tr>
+        <tr>
+          <td>
+            <input type="button" value="로그인" onclick="logIn()" class="button" />
+          </td>
+          <td>
+            <input type="button" value="돌아가기" onclick="returnList()" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <script>
+      var member = JSON.parse(localStorage.getItem("list"));
+      var flag = -1;
+
+      function Member(id, pw, name, phone, email) {
+        this.id = id;
+        this.pw = pw;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+      }
+
+      function logIn() {
+        var sid = document.getElementsByClassName("id")[0].value;
+        var spw = document.getElementsByClassName("pw")[0].value;
+        flag = -1;
+        for (var i = 0; i < member.length; i++) {
+          if (member[i].id == sid && member[i].pw == spw) {
+            alert("로그인 성공!");
+            returnList();
+            break;
+          } else if (flag == -1) {
+            alert("로그인 실패 다시 시도해주세요.");
+          }
+        }
+      }
+
+      function returnList() {
+        location.href = "./kia.html";
+      }
+    </script>
+  </body>
+</html>

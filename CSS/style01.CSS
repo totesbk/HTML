@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+}
+body{
+    font-family: "돋움",serif;
+    background-color: snow;
+    color: black;
+}
+.container{
+    margin: 0 auto; 
+    width: 1200px;
+
+}
+.header{
+    margin: 0 auto;
+    width: 1000px;
+    height: 130px;
+    background-color: gold;
+    color: black;
+    font-size: 100px;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+.main{
+    margin: 0 auto;
+    width: 1000px;
+    height: 700px;
+    background-color: skyblue;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+
+}
+.nav{
+    width: 300px;
+    height: 700px;
+    text-align: center;
+    vertical-align: middel;
+    background-color: slateblue;
+    color: snow;
+    font-size: 30px;
+
+
+}
+.section{
+    width: 650px;
+    height: 700px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: yellowgreen;
+    color: midnightblue;
+    font-size: 30px;
+
+
+}
+.footer{
+    margin: 0 auto;
+    width: 1000px;
+    height: 150px;
+    background-color: mistyrose;
+    color: orchid;
+    font-size: 20px
+    text-align: center;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

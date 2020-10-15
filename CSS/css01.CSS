@@ -1,0 +1,17 @@
+#list{
+    width: 100%;
+
+}
+#list tr th, #list tr td{
+    border: 1px gray dotted;
+    text-align: center;
+}
+#list tr th{
+    background-color: royalblue;
+    color: white;
+    font-weight: bold;
+}
+#list tr:nth-of-type(2n+3){
+    background-color: yellow;
+
+}

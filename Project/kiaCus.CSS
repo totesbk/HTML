@@ -1,0 +1,36 @@
+* {
+  font-family: "Nunito", sans-serif;
+  text-align: center;
+  color: black;
+}
+.num {
+  font-size: 30px;
+}
+table {
+  text-align: center;
+  font-size: 30px;
+  margin: 0px auto;
+  padding: 5px;
+  border-spacing: 0px;
+}
+table input {
+  border-radius: 5px;
+  border-color: white;
+  color: black;
+  background-color: beige;
+  height: 25px;
+}
+#cen {
+  font-size: 50px;
+  color: black;
+}
+body {
+  font-size: 15px;
+  border-top: 6px solid rgb(198, 25, 45);
+}
+#kia {
+  width: 300px;
+}
+#ssw1 {
+  border: 1px solid black;
+}

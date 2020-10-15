@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery-3.51.js"></script>
+  <script src="./jquery-ui.js"></script>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px; 
+    }
+    #canvas{
+      background-color: gray;
+      width: 600px;
+      height: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+    .inner_box{
+      background-color: yellow;
+      border: 1px solid black;
+      position: absolute;
+      width: 100px;
+      height: 100px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <h1>테스트 슬라이드</h1>
+  <div id="canvas">
+    <div class="inner_box"></div>
+    <div class="inner_box"></div>
+    <div class="inner_box"></div>
+    <div class="inner_box"></div>
+    <div class="inner_box"></div>
+  </div>
+  <h1>이미지 슬라이드</h1>
+  
+  <script>
+    $(document).ready(function(){
+      $('.inner_box').each(function(index){
+        $(this).css({
+          left:index*90,
+          top:index*90
+        })
+      });
+    });
+  </script>
+</body>
+</html>

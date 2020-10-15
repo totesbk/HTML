@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = function(){
+      function member(id,pw,name){
+        this,id=id;
+        this.pw;
+        this.name=name;
+      }
+      var member;
+      var signUp=document.getElementById('signUp');
+      var signIn=document.getElementById('signIn');
+
+      signUp.addEventListener('click',,false)
+      signIn.addEventListener('click',,false)
+
+      function signUpListener(e){
+        var id=document.getElementById('suId').value;
+        var password=document.getElementById('suPassword').value;
+        var name=document.getElementById('suNmae').value;
+        new member(id,password,name);
+        member.push(new member(id,password,name));
+        console.log('회원가입완료');
+
+      };
+      function signInListener(e){
+        var id =document.getElementById('siId').value;
+        var password =document.getElementById('siPassword').value;
+        
+        var flag=-1;
+        
+
+        for(var 1 in memberList){
+          if(memberList[1].id=id) && (memberList[].pw=password){
+            flag=-1;
+            arler(memberList[i],pw=password){
+              flag=i;
+              alert(memberList[i].name+'님 환영합니다.')
+              break;
+            }
+          }
+          if(flag==1){
+            alert('아이디 또는 비밀번호가 일치하지 않습니다.')
+          }
+        }  
+
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <form action="#" method="GET">
+    <fieldset>
+      <legend>회원 가입</legend>
+      <label for="">아이디 : </label>
+      <input type="text" id="suId" name="suId"><br>
+      <label for="">비밀번호 : </label>
+      <input type="password" id="suPassword" name="suPassword"><br>
+      <label for="">이름</label>
+      <input type="text" name="suName" id="suName"><br>
+      <input type="button" value="회원가입" id="signUp">
+    </fieldset>
+  
+    <fieldset>
+      <legend>로그인</legend>
+      <label for="">아이디 : </label>
+      <input type="text" id="siId" name="siId"><br>
+      <label for="">비밀번호 : </label>
+      <input type="password" id="sipassword" name="sipassword"><br>
+      <input type="button" value="회원가입" id="signIn">
+    </fieldset>
+  
+  </form>
+</body>
+</html>

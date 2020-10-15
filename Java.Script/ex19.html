@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function textColorRed(){
+      var p=document.getElementById('text');
+    p.style.color='red';
+    }
+    function textColorBlue(){
+      var p=document.getElementById('text');
+    p.style.color='blue';
+    p.clickList.add('textColorChange');
+    // p.className='textColorChange';
+    }
+    
+  </script>
+  <style>
+    .textColorChange{
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <p id="text" class="aa bb cc">Hello World</p>
+  <input type="button" value="textColorRed" onclick="textColorRed()">
+  <input type="button" value="textColorBlue" onclick="textColorBlue()">
+</body>
+</html>

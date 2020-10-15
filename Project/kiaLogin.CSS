@@ -1,0 +1,24 @@
+* {
+  font-family: "Nunito", sans-serif;
+
+  color: black;
+  margin: 0 auto;
+}
+.kia {
+  font-size: 60px;
+  text-align: center;
+  font-weight: 800;
+  margin-top: 50px;
+}
+body {
+  border-top: 6px solid rgb(198, 25, 45);
+  text-align: center;
+}
+#kiaimg {
+  width: 300px;
+}
+.form {
+  margin-top: 80px;
+}
+.button {
+}

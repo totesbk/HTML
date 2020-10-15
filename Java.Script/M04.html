@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+   var score=[78,54,89,57,84,95,74,91,84,67,52,94,82];
+    var sum=0;
+    var max=0;
+    var min=0;
+    var avg=0;
+
+    for(var i=0;i<score.length;i++){
+      if(max<score[i]){
+        max=score[i];
+
+      }
+      sum+=score[i];
+
+    }
+    var min=99;
+    for(var i=0;i<score.length;i++){
+      if(min>score[i]){
+        min=score[i];
+
+      }
+     
+
+    }
+    avg=sum/score.length;
+    // alert('평균 : '+avg)
+    // alert('최고점수 : '+max)
+    alert('최소 점수 : '+min)
+    // alert('총합  : '+sum)
+
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

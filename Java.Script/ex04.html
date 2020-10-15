@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var i = 2;
+        for (var i = 2; i < 10; i++) {
+            document.write(Number(i) + '단')
+
+
+
+            for (var j = 1; j < 10; j++) {
+                document.write('<p>' + Number(i) + 'X' + Number(j) + '=' + (i * j))
+
+            }
+
+        }
+
+    </script>
+    <h1>5단출력</h1>
+    <script>
+        gugudan: for (var i = 1; i < 10; i++) {
+            document.write(i+ '단 <br>')
+
+                    for (var j = 1; j < 10; j++) {
+                        document.write(i+ 'X' + j + '=' + (i * j)+'<br>')
+                        if (i == 5 && j == 5) {
+                            break gugudan;
+                        }
+
+                    }
+
+                }
+            </script>
+    <h1>짝수단</h1>
+    <script>
+        var i = 2;
+        for (var i = 2; i < 10; i++) {
+            if (i%2==0) {
+                document.write(+i + '단 <br>')
+                for (var j = 1; j < 10; j++) {
+                    document.write(+ i + 'X' + j + '=' + (i * j)+'<br>')
+
+                }
+
+            }
+        }
+
+    </script>
+    
+    
+    </body>
+    
+    </html>

@@ -1,0 +1,58 @@
+<head>
+    <style>
+        .container{
+            width: 300px;
+            margin: 0 auto;
+            background-color: wheat;
+            overflow: hidden;
+           
+        }
+        .box{           
+            width: 100px;
+            height: 100px;
+        }
+        .red{
+            background-color: red;   
+            float: left;       
+           
+            
+        }
+         .yellow{
+            background-color: yellow;
+            width: 100px;
+            float: left;
+        }
+        .blue{
+            background-color: blue;        
+            float: left; 
+        }
+        /* clear{
+            clear: left;
+        } */
+        .black{
+            margin: 0 auto;
+            background-color: black;
+            color: blanchedalmond;
+            width: 200px;
+            height: 200px;
+           
+        } 
+        .blue::after{
+            clear: both;
+            display: block;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="box red">red box</div>
+        <div class="box yellow">yellow box</div>
+        <div class="box blue">blue box</div>
+    </div>
+    
+    </div>
+    <div class="black"></div>
+
+</body>

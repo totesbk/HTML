@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Open+Sans+Condensed:wght@300&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic+Coding&family=Open+Sans+Condensed:wght@300&family=Stylish&display=swap");
+
+        .main{
+            margin: auto 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        body {
+            background-color: lightgray;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .title {
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 65px;
+            color: rgb(43, 43, 43);
+            letter-spacing: 10px;
+            text-shadow: 5px 7px 10px rgb(100, 100, 100);
+        }
+
+        #calendar {
+            margin: auto;
+            padding: 15px 30px;
+            border: 2px black solid;
+            width: 1000px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(241, 241, 241);
+            font-family: 'Open Sans Condensed', sans-serif;
+            text-align: center;
+        }
+
+        #header {
+            margin-top: 10px;
+            font-size: 40px;
+            letter-spacing: 5px;
+        }
+
+        .sun {
+            margin-top: 10px;
+            width: 1000px;
+            height: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            position: relative;
+        }
+
+        .day {
+            font-size: 22px;
+            width: 100px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .day:last-child {
+            color: blue;
+        }
+
+        .day:first-child {
+            color: red;
+        }
+
+        .calendarBody {
+            margin-top: 10px;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            height: 550px;
+            justify-content: space-around;
+        }
+
+        .week {
+            display: flex;
+            flex-direction: row;
+            overflow: auto;
+            justify-content: space-around;
+        }
+
+        .week .dayDay:first-child {
+            color: red;
+        }
+
+        .week .dayDay:last-child {
+            color: blue;
+        }
+
+        .dayDay {
+            width: 63px;
+            font-size: 27px;
+            margin: 15px auto;
+            padding: 20px;
+            border: 1px rgb(167, 166, 166) dotted;
+        }
+        .bin{
+            height: 20px;
+        }
+
+        #toDoList {
+            margin-left: 0px;
+            width: 400px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+        }
+        .title2{
+            margin-top: 75px;
+            text-transform: uppercase;
+            font-size: 35px;
+            color: rgb(43, 43, 43);
+            letter-spacing: 5px;
+            text-shadow: 5px 7px 10px rgb(100, 100, 100);
+        }
+        .toDoItems{
+            text-align: left;
+            font-size: 22px;
+            padding-bottom: 15px;
+            font-family: 'Do Hyeon', sans-serif;
+            font-weight: lighter;
+            color: rgb(70, 69, 69);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <h1 class="title">calendar</h1>
+            <div id="calendar">
+                <div><input type="month" name="selMonth" id="selMonth" onchange="selMonth()"></div>
+                <div id="header"></div>
+                <div class="sun">
+                    <div class="day">SUN</div>
+                    <div class="day">MON</div>
+                    <div class="day">TUE</div>
+                    <div class="day">WED</div>
+                    <div class="day">THU</div>
+                    <div class="day">FRI</div>
+                    <div class="day">SAT</div>
+                </div>
+                <div id="calendarBody"></div>
+                <div class="bin"></div>
+            </div>
+        </div>
+
+        <div id="toDoList">
+            <h3 class="title2">TO DO LIST</h3>
+            <input type="button" value="add" onclick="addToDoList2()">
+            <div class="tdList"></div>
+        </div>
+    </div>
+
+    <script>
+
+        window.onload = function () {
+            var now = new Date();
+            var nowMonth = new Date(now.getFullYear(), now.getMonth());
+            changeHead(nowMonth);
+            buildCalendar(nowMonth);
+
+            var tdList = document.getElementsByClassName('dayDay')
+            for(var i=0;i<tdList.length;i++){
+                tdList[i].setAttribute('onclick','addToDoList(this)');   
+            }
+
+        }
+
+        function selMonth() {
+            var yearMonth = document.getElementById('selMonth').value;
+            var selectYearMonth = new Date(yearMonth); //선택한 년월을 가지고온다.
+            changeHead(selectYearMonth);
+            buildCalendar(selectYearMonth);
+        }
+
+        function changeHead(selectDate) {
+            document.getElementById('header').innerHTML = selectDate.getFullYear() + '. '
+                + (selectDate.getMonth() + 1);
+        }
+
+        function buildCalendar(selectDate) {
+            var calendar = document.getElementById('calendarBody');
+            calendar.innerHTML = '';
+
+            var monthLastDay = lastDate(selectDate); //해당 월의 마지막날을 구하는 함수
+            var weekInfo = selectDate.getDay(); //주 정보 가져오기 일요일0, 월요일1~토요일6
+            var dateCnt = selectDate.getDate() - weekInfo; //날짜 카운트의 초기값(일)
+
+            while (true) {
+                var weekLine = document.createElement('div');
+                weekLine.setAttribute('class', 'week')
+                for (var weekCnt = 0; weekCnt < 7; weekCnt++) {
+                    var weekDay = document.createElement('div');
+                    weekDay.setAttribute('class', 'dayDay')
+                    if (0 < dateCnt && dateCnt <= monthLastDay) {
+                        weekDay.innerHTML = dateCnt; //날짜를 기록하기 위한 조건 
+                    }
+                    dateCnt++;
+                    weekLine.appendChild(weekDay);
+                }
+                calendarBody.appendChild(weekLine);
+                if (dateCnt > monthLastDay) {
+                    break;
+                }
+            }
+        }
+
+        function lastDate(selectDate) {
+            var year = selectDate.getFullYear();
+            var month = selectDate.getMonth();
+            var monthArray = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            if ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) {
+                monthArray[1] = 29;
+            }
+            return monthArray[month];
+        }
+
+        function addToDoList(tag){
+            var toDo = prompt('일정을 입력하세요.');
+            var toDo1 = 'DAY'+tag.innerHTML+'. '+toDo+' ';
+
+            var inputChecked = document.createElement('input');
+            inputChecked.setAttribute('type','checkbox');
+            inputChecked.setAttribute('onchange','line(this)');
+            
+            var span = document.createElement('span');
+            span.setAttribute('class','toggle');
+            span.innerHTML = toDo1;
+            
+            var img = document.createElement('img');
+            img.setAttribute('src','./img/pngbarn.png');
+            img.setAttribute('alt','cancel');
+            img.setAttribute('width','15px');
+            img.setAttribute('height','15px');
+            img.setAttribute('onclick','delList(this)');
+            
+            var newLi = document.createElement('div');
+            newLi.setAttribute('class','toDoItems');
+            newLi.appendChild(inputChecked);
+            newLi.appendChild(span);
+            newLi.appendChild(img);
+            
+            var list =  document.getElementById('toDoList');
+            list.appendChild(newLi);
+
+        }
+
+        function addToDoList2(){
+            var monthNum = document.getElementById('selMonth').value;
+            var dayNum = prompt('일정을 추가할 날짜를 입력하세요.');
+            var toDo = prompt('일정을 입력하세요.');
+            var toDo1 = 'DAY'+dayNum+'. '+toDo+' ';
+
+            var inputChecked = document.createElement('input');
+            inputChecked.setAttribute('type','checkbox');
+            inputChecked.setAttribute('onchange','line(this)');
+            
+            var span = document.createElement('span');
+            span.setAttribute('class','toggle');
+            span.innerHTML = toDo1;
+            
+            var img = document.createElement('img');
+            img.setAttribute('src','./img/pngbarn.png');
+            img.setAttribute('alt','cancel');
+            img.setAttribute('width','15px');
+            img.setAttribute('height','15px');
+            img.setAttribute('onclick','delList(this)');
+            
+            var newLi = document.createElement('div');
+            newLi.setAttribute('class','toDoItems');
+            newLi.appendChild(inputChecked);
+            newLi.appendChild(span);
+            newLi.appendChild(img);
+            
+            var list =  document.getElementById('toDoList');
+            list.appendChild(newLi);
+
+        }
+
+        function delList(tag){
+            var pNode = tag.parentNode;
+            var list =  document.getElementById('toDoList');
+            list.removeChild(pNode);
+        }
+
+        function line(tag){
+            var sNode = tag.nextElementSibling;
+            if(sNode.hasAttribute('class')){
+                sNode.style.textDecoration='line-through';
+                sNode.removeAttribute('class');
+            } else{
+                sNode.style.textDecoration='none';
+                sNode.setAttribute('class','toggle');
+            }
+        }
+
+        $(document).ready(function () {
+            $('.title').hover(function () {
+                $(this).animate({
+                    left: 100
+                }, 1000)
+            }, function () {
+                $(this).animate({
+                    left: 0
+                }, 2000)
+            })
+
+            // $('.dayDay').click(function(){
+            //     var cnt = $(this).html();
+            //     alert(cnt);
+            // })
+            
+
+
+            
+
+        })
+
+        /*$(document).ready(function(){
+           $('body').css('backgroundColor','lightgray');
+
+           $('.title').hover(function(){
+               $(this).animate({
+                   left:100
+               },1000)
+           },function(){
+               $(this).animate({
+                   left:0
+               },2000)
+           })
+
+           $('.day:first').css('color','red');
+           $('.day:last').css('color','blue');
+
+           var now = new Date();
+           $('#header').html(now.getFullYear()+'.'+(now.getMonth()+1)+'.');
+
+           $('#selMonth').on('changed',function(){
+               $(this).val();
+               var year = monthYear.getFullYear();
+               var month = monthYear.getMonth();
+               $('#header').html(year+'.'+month+'.');
+           })
+       })*/
+
+    </script>
+</body>
+
+</html>

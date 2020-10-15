@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var score = [];
+      function Score(name, kor, eng, math, sum, avg) {
+        this.name = name;
+        this.kor = kor;
+        this.eng = eng;
+        this.math = math;
+        this.sum = sum;
+        this.avg = avg;
+      }
+      function info() {
+        var name = document.getElementById("name").value;
+        var kor = parseInt(document.getElementById("kor").value);
+        var eng = parseInt(document.getElementById("eng").value);
+        var math = parseInt(document.getElementById("math").value);
+        var sum = kor + eng + math;
+        var avg = sum / 3;
+
+        score.push(new Score(name, kor, eng, math, sum, avg));
+
+        alert("성적 등록을 완료했습니다.");
+      }
+
+      function getInfo() {
+        var selName = document.getElementById("sName").value;
+        for (var i = 0; i < score.length; i++) {
+          if (selName == score[i].name) {
+            document.getElementById("sKor").setAttribute("value", score[i].kor);
+            document.getElementById("sEng").setAttribute("value", score[i].eng);
+            document
+              .getElementById("sMath")
+              .setAttribute("value", score[i].math);
+            document.getElementById("sSum").setAttribute("value", score[i].sum);
+            document.getElementById("sAvg").setAttribute("value", score[i].avg);
+          }
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <fieldset>
+      <legend></legend>
+      학생이름 : <input type="text" name="name" id="name" /><br />
+      국어 점수 : <input type="number" name="kor" id="kor" /><br />
+      영어 점수 : <input type="number" name="eng" id="eng" /><br />
+      수학 점수 : <input type="number" name="math" id="math" /><br />
+      <input type="button" value="성적입력" onclick="info()" />
+    </fieldset>
+
+    <fieldset>
+      <legend>성적 조회</legend>
+      학생 이름 : <input type="text" name="sName" id="sName" />
+      <input type="button" value="성적 조회" onclick="getInfo()" /><br />
+      국어 점수 : <input type="number" name="kor" id="sKor" readonly /><br />
+      영어 점수 : <input type="number" name="eng" id="sEng" readonly /><br />
+      수학 점수 : <input type="number" name="math" id="sMath" readonly /><br />
+      총 점 : <input type="number" name="sum" id="sSum" readonly /><br />
+      평 균 : <input type="number" name="avg" id="sAvg" readonly /><br />
+    </fieldset>
+  </body>
+</html>
